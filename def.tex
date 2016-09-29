@@ -1,0 +1,80 @@
+\def\B{\mathcal{B}}       % Borel sets
+\def\C{\mathbb{C}}        % Complex numbers
+\def\Bb{\bar{\B}}         % Lebesgue sets
+\def\N{\mathbb{N}}        % Naturals
+\def\Z{\mathbb{Z}}        % Integers
+\def\R{\mathbb{R}}        % Reals
+\def\F{\mathcal{F}}       % F sigma-algebra
+\def\G{\mathcal{G}}       % G sigma-algebra
+\def\H{\mathcal{H}}       % H sigma-algebra
+\def\D{\mathcal{D}}       % Law / Distribution
+\def\normal{\mathcal{N}}  % Normal distribution
+\def\1{\mathds{1}}        % Indicatrice Function
+\def\I{\mathbb{I}}        % Ito Integral
+\def\S{\mathcal{S}}       % Partial sums
+\def\d{\mathrm{d}}        % Little difference
+\def\Q{\mathbb{Q}}        % Risk-Neutral Measure / Rationals
+\def\cond{\ \middle|\ }   % Conditional vertical bar
+\def\h{\hat}              % Shortcut for Fourier transform
+\def\W{\widetilde{W}}     % Independent Brownian Motions
+\def\D{\mathcal{D}}       % Dirichlet Space
+
+% Shortcuts
+\def\f{\frac}
+\def\r{\right}
+\def\l{\left}
+\def\b{\textbf}
+\def\s{\sqrt}
+\def\i{\infty}
+\def\t{\text}
+
+\makeatletter
+
+  % Conditional Expection
+  \newcommand{\E}{\@ifnextchar[{\@with}{\@without}}
+  \def\@with[#1]#2{\mathbb{E}^{#1}\l[#2\r]}
+  \def\@without#1{\mathbb{E}\l[#1\r]}
+
+  % Probability measure
+  \renewcommand{\P}{\@ifnextchar[{\@probawith}{\@probawithout}}
+  \def\@probawith[#1]#2{\mathbb{P}^{#1}\l(#2\r)}
+  \def\@probawithout#1{\mathbb{P}\l(#1\r)}
+
+  % Continuous Functions
+  \newcommand{\Co}{\@ifnextchar[{\@cowith}{\@cowithout}}
+  \def\@cowith[#1]#2{\mathcal{C}^{#1}\l(#2\r)}
+  \def\@cowithout#1{\mathcal{C}\l(#1\r)}
+
+  % Partial Derivatives
+  \newcommand{\diff}{\@ifnextchar[{\@diffwith}{\@diffwithout}}
+  \def\@diffwith[#1]#2#3{\frac{\partial^{#1} #2}{\partial #3^{#1}}}
+  \def\@diffwithout#1#2{\frac{\partial #1}{\partial #2}}
+
+  % Inner product
+  \newcommand{\ip}{\@ifnextchar[{\@ipwith}{\@ipwithout}}
+  \def\@ipwith[#1]#2{{\l\langle#2\r\rangle}_{#1}}
+  \def\@ipwithout#1{{\l\langle#1\r\rangle}}
+
+\makeatother
+
+\newcommand{\abs}[1]{\l\lvert {#1} \r\rvert}               % Absolute value
+\newcommand{\norm}[1]{\l\lVert#1\r\rVert}                  % Norm
+\newcommand{\Var}[1]{\text{Var}\l(#1\r)}                   % Variance
+\newcommand{\floor}[1]{\l\lfloor#1\r\rfloor}               % Floor
+\newcommand{\bra}[1]{\l\llbracket#1\r\rrbracket}           % Integer interval
+\newcommand{\cov}[2]{{\l\lbrack#1,#2\r\rbrack}}            % Covariation
+\newcommand{\Cov}[1]{\text{Cov}\l(#1\r)}
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}       % Matrix
+\renewcommand{\L}[1]{\mathcal{L}\l(#1\r)}                  % Linear Operators
+\let\oldRe\Re
+\renewcommand{\Re}[1]{\oldRe\l\{#1\r\}}                    % Real part
+\let\oldIm\Im
+\renewcommand{\Im}[1]{\oldIm\l\{#1\r\}}                    % Imaginary part
+\newcommand{\tend}[3]{
+  \overset
+    {\ifthenelse{\equal{#3}{}}{}{#3}}
+    {\underset
+      {\ifthenelse{\equal{#1}{}}{n}{#1} \to \ifthenelse{\equal{#2}{}}{+\i}{#2}}
+      {\longrightarrow}
+    }
+}
