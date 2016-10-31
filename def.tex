@@ -31,14 +31,16 @@
 \makeatletter
 
   % Conditional Expection
-  \newcommand{\E}{\@ifnextchar[{\@with}{\@without}}
-  \def\@with[#1]#2{\mathbb{E}^{#1}\l[#2\r]}
-  \def\@without#1{\mathbb{E}\l[#1\r]}
+  \newcommand{\E}{\@ifnextchar[{\@expwithmeasure}{\@ifnextchar\bgroup{\@expnormal}{\@expalone}}}
+  \def\@expwithmeasure[#1]#2{\mathbb{E}^{#1}\l[#2\r]}
+  \def\@expnormal#1{\mathbb{E}\l[#1\r]}
+  \def\@expalone{\mathbb{E}}
 
   % Probability measure
-  \renewcommand{\P}{\@ifnextchar[{\@probawith}{\@probawithout}}
-  \def\@probawith[#1]#2{\mathbb{P}^{#1}\l(#2\r)}
-  \def\@probawithout#1{\mathbb{P}\l(#1\r)}
+  \renewcommand{\P}{\@ifnextchar[{\@probaone}{\@ifnextchar\bgroup{\@probatwo}{\@probathree}}}
+  \def\@probaone[#1]#2{\mathbb{P}^{#1}\l(#2\r)}
+  \def\@probatwo#1{\mathbb{P}\l(#1\r)}
+  \def\@probathree{\mathbb{P}}
 
   % Continuous Functions
   \newcommand{\Co}{\@ifnextchar[{\@cowith}{\@cowithout}}
@@ -54,6 +56,9 @@
   \newcommand{\ip}{\@ifnextchar[{\@ipwith}{\@ipwithout}}
   \def\@ipwith[#1]#2{{\l\langle#2\r\rangle}_{#1}}
   \def\@ipwithout#1{{\l\langle#1\r\rangle}}
+
+  % Redefine reference format for figures
+  \renewcommand\p@figure{\thechapter-\arabic{figure}\expandafter\@gobble}
 
 \makeatother
 
