@@ -56,12 +56,15 @@
   \def\@ipwith[#1]#2{{\l\langle#2\r\rangle}_{#1}}
   \def\@ipwithout#1{{\l\langle#1\r\rangle}}
 
+  % Normal distribution
+  \newcommand{\normal}{\@ifnextchar\bgroup{\@normalwith}{\mathcal{N}}}
+  \def\@normalwith#1{\mathcal{N}\l(#1\r)}
+
   % Redefine reference format for figures
   \renewcommand\p@figure{\thechapter-\arabic{figure}\expandafter\@gobble}
 
 \makeatother
 
-\newcommand{\normal}[1]{\mathcal{N}\l(#1\r)}          % Normal distribution
 \newcommand{\abs}[1]{\l\lvert {#1} \r\rvert}          % Absolute value
 \newcommand{\norm}[1]{\l\lVert#1\r\rVert}             % Norm
 \newcommand{\Var}[1]{\text{Var}\l(#1\r)}              % Variance
@@ -86,3 +89,4 @@
       {\longrightarrow}
     }
 }
+
