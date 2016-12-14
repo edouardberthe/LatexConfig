@@ -1,23 +1,50 @@
+%!TEX root = ../paper.tex
+
 \usepackage{lmodern}
 \usepackage[fleqn]{amsmath}
 \usepackage[letterpaper, margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{mathrsfs}
 \usepackage{amssymb}
-\usepackage{graphicx}                  % For images
+% For images
+\usepackage{graphicx}
 \graphicspath{{img/}}
-\usepackage{dsfont}                    % For indicatrice function 1_A
-\usepackage{bm}                        % For bold mathematical formulas
-\usepackage{stmaryrd}                  % For integer intervals llbracket rrbracket
-\usepackage{listings}                  % For code text
-\lstset{showstringspaces=false}        % Removes ugly spaces
-\usepackage{microtype}                 % Improves spaces between words
-\usepackage{datetime}                  % Improves date management
-\usepackage{xcolor}
-\usepackage{url}                       % URL for biblio
-\usepackage{float}                     % To use figure[H] and force placement
-\usepackage{array, multirow, multicol} % Tables
-\usepackage{amsthm}                    % Theorems
 \usepackage{subcaption}
+% To use figure[H] and force placement
+\usepackage{float}
+% For indicatrice function 1_A
+\usepackage{dsfont}
+% For bold mathematical formulas + ensure robust bold in titles with hyperref
+\usepackage{bm}
+% For integer intervals llbracket rrbracket
+\usepackage{stmaryrd}
+% For code text
+\usepackage{listings}
+% Removes ugly spaces
+\lstset{showstringspaces=false}
+% Improves spaces between words
+\usepackage{microtype}
+% Improves date management
+\usepackage{datetime}
+\usepackage{xcolor}
+% URL for biblio
+\usepackage{url}
+% Tables
+\usepackage{array, multirow, multicol}
+% Theorems
+\usepackage{amsthm}
+
 \usepackage{booktabs}
-\usepackage[toc,page]{appendix}
+% Appendices
+\usepackage[toc,page,title]{appendix}
+% Hyper references (internal)
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{bookmark}
+% For \cref, improves format of references
+\usepackage{cleveref}
+% Interaction between appendix and cleveref pkgs
+\crefname{appalias}{Appendix}{Appendices}
+% Specific for citation format \citet
+\usepackage[numbers]{natbib}
+% Bibliography Style
+\bibliographystyle{plainnat}

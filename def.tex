@@ -1,3 +1,5 @@
+%!TEX root = ../paper.tex
+
 \def\B{\mathcal{B}}       % Borel sets
 \def\C{\mathbb{C}}        % Complex numbers
 \def\Bb{\bar{\B}}         % Lebesgue sets
@@ -61,7 +63,7 @@
 
 \makeatother
 
-\newcommand{\normal}[1]{\mathcal{N}\l(#1\r)}            % Normal distribution
+\newcommand{\normal}[1]{\mathcal{N}\l(#1\r)}         % Normal distribution
 \newcommand{\abs}[1]{\l\lvert {#1} \r\rvert}         % Absolute value
 \newcommand{\norm}[1]{\l\lVert#1\r\rVert}            % Norm
 \newcommand{\Var}[1]{\text{Var}\l(#1\r)}             % Variance
@@ -70,7 +72,7 @@
 \newcommand{\cov}[2]{{\l\lbrack#1,#2\r\rbrack}}      % Covariation
 \newcommand{\Cov}[1]{\text{Cov}\l(#1\r)}             % Covariance
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}} % Matrix
-\renewcommand{\O}[1]{\mathcal{O}\l(#1\r)}              % Big O
+\renewcommand{\O}[1]{\mathcal{O}\l(#1\r)}            % Big O
 \renewcommand{\L}[1]{\mathcal{L}\l(#1\r)}            % Linear Operators
 \let\oldRe\Re
 \renewcommand{\Re}[1]{\oldRe\l\{#1\r\}}              % Real part
@@ -84,3 +86,5 @@
       {\longrightarrow}
     }
 }
+% Allows \bm in titles with hyperref
+\newcommand{\bmt}[1]{\texorpdfstring{\bm{#1}}{a}}
