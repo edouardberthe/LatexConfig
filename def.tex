@@ -58,26 +58,31 @@
   \def\@ipwith[#1]#2{{\l\langle#2\r\rangle}_{#1}}
   \def\@ipwithout#1{{\l\langle#1\r\rangle}}
 
+  % Normal distribution
+  \newcommand{\normal}{\@ifnextchar\bgroup{\@normalwith}{\mathcal{N}}}
+  \def\@normalwith#1{\mathcal{N}\l(#1\r)}
+
   % Redefine reference format for figures
   \renewcommand\p@figure{\thechapter-\arabic{figure}\expandafter\@gobble}
 
 \makeatother
 
-\newcommand{\normal}[1]{\mathcal{N}\l(#1\r)}         % Normal distribution
-\newcommand{\abs}[1]{\l\lvert {#1} \r\rvert}         % Absolute value
-\newcommand{\norm}[1]{\l\lVert#1\r\rVert}            % Norm
-\newcommand{\Var}[1]{\text{Var}\l(#1\r)}             % Variance
-\newcommand{\floor}[1]{\l\lfloor#1\r\rfloor}         % Floor
-\newcommand{\bra}[1]{\l\llbracket#1\r\rrbracket}     % Integer interval
-\newcommand{\cov}[2]{{\l\lbrack#1,#2\r\rbrack}}      % Covariation
-\newcommand{\Cov}[1]{\text{Cov}\l(#1\r)}             % Covariance
-\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}} % Matrix
-\renewcommand{\O}[1]{\mathcal{O}\l(#1\r)}            % Big O
-\renewcommand{\L}[1]{\mathcal{L}\l(#1\r)}            % Linear Operators
+\newcommand{\abs}[1]{\l\lvert {#1} \r\rvert}          % Absolute value
+\newcommand{\norm}[1]{\l\lVert#1\r\rVert}             % Norm
+\newcommand{\Var}[1]{\text{Var}\l(#1\r)}              % Variance
+\newcommand{\floor}[1]{\l\lfloor#1\r\rfloor}          % Floor
+\newcommand{\bra}[1]{\l\llbracket#1\r\rrbracket}      % Integer interval
+\newcommand{\cov}[2]{{\l\lbrack#1,#2\r\rbrack}}       % Covariation
+\newcommand{\Cov}[1]{\text{Cov}\l(#1\r)}              % Covariance
+\newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}  % Bracket matrix
+\newcommand{\pmat}[1]{\begin{pmatrix}#1\end{pmatrix}} % Parenthesis matrix
+\renewcommand{\O}[1]{\mathcal{O}\l(#1\r)}             % Big O
+\renewcommand{\L}[1]{\mathcal{L}\l(#1\r)}             % Linear Operators
+
 \let\oldRe\Re
-\renewcommand{\Re}[1]{\oldRe\l\{#1\r\}}              % Real part
+\renewcommand{\Re}[1]{\oldRe\l\{#1\r\}}               % Real part
 \let\oldIm\Im
-\renewcommand{\Im}[1]{\oldIm\l\{#1\r\}}              % Imaginary part
+\renewcommand{\Im}[1]{\oldIm\l\{#1\r\}}               % Imaginary part
 \newcommand{\tend}[3]{
   \overset
     {\ifthenelse{\equal{#3}{}}{}{#3}}
@@ -86,5 +91,5 @@
       {\longrightarrow}
     }
 }
-% Allows \bm in titles with hyperref
 \newcommand{\bmt}[1]{\texorpdfstring{\bm{#1}}{a}}
+
