@@ -62,6 +62,18 @@
   \newcommand{\normal}{\@ifnextchar\bgroup{\@normalwith}{\mathcal{N}}}
   \def\@normalwith#1{\mathcal{N}\l(#1\r)}
 
+  % n-convolution
+  \DeclareRobustCommand{\bigstar}{%
+  \mathop{\vphantom{\sum}\mathpalette\bigstar@\relax}\slimits@
+  }
+
+  \newcommand{\bigstar@}[2]{%
+    \vcenter{%
+      \sbox\z@{$#1\sum$}%
+      \hbox{\resizebox{.9\dimexpr\ht\z@+\dp\z@}{!}{$\m@th\star$}}%
+    }%
+  }
+
   % Redefine reference format for figures
   \renewcommand\p@figure{\thechapter-\arabic{figure}\expandafter\@gobble}
 
@@ -71,7 +83,7 @@
 \newcommand{\norm}[1]{\l\lVert#1\r\rVert}             % Norm
 \newcommand{\Var}[1]{\text{Var}\l(#1\r)}              % Variance
 \newcommand{\floor}[1]{\l\lfloor#1\r\rfloor}          % Floor
-\newcommand{\ceil}[1]{\l\lceil#1\r\rceil}             % Ceil
+\newcommand{\ceil}[1]{{\l\lceil#1\r\rceil}}           % Ceil
 \newcommand{\bra}[1]{\l\llbracket#1\r\rrbracket}      % Integer interval
 \newcommand{\cov}[2]{{\l\lbrack#1,#2\r\rbrack}}       % Covariation
 \newcommand{\Cov}[1]{\text{Cov}\l(#1\r)}              % Covariance
